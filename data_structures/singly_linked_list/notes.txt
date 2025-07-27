@@ -55,9 +55,46 @@ if the list has at least one element:
 3-the tail pointer will point to the new_node and makes it the new tail node.
                                                       head = 1
 (1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 5    new_node = 5
-                                                      length = 5          last 
+                                                      length = 5      
 
 *if we didn't have a tail node pointer, we would have traverse the entire linked list till the last node starting from the head node pointer
 and then add the new node to the list. which is going to be O(n) but since we already have a pointer to the last element it's O(1)
+
+Deleting the last Node(O(N)):
+if the link list is empty:
+1-just break out of the function
+                                                      head = null
+                                                      tail = null
+                                                      length = 0 
+
+if the list has one element:
+1-since there is only one element, both head and tail node pointer are pointing to it, they both have to point to null pointer.
+                                                      head = null  
+(1) -> null                                           tail = null    temp = 1    
+                                                      length = 1
+2-delete the temp node:
+                                                      head = null
+                                                      tail = null
+                                                      length = 0 
+
+if the list has more than one element:
+1-get to the previous node of the current tail node pointer, becuase that is going to be the new tail node.
+                                                      head = 1    previous = 4
+(1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 5    temp = 5
+                                                      length = 5
+
+2-the previous node will become the new tail node.
+                                                      head = 1    previous = 4
+(1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 4    temp = 5
+                                                      length = 5
+
+3-the new tail pointer will point to null and unlinks the last node from the list.
+                                                      head = 1    previous = 4
+(1) -> (2) -> (3) -> (4) -> null (5) -> null          tail = 4    temp = 5
+                                                      length = 5
+4-delete the temp node.
+                                                      head = 1    previous = 4
+(1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp = 5
+                                                      length = 4
 
 
