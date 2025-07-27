@@ -127,7 +127,7 @@ if the list has at least one element:
                                                       length = 4    
 
 
-delete first node():
+delete first node(O(1)):
 if the link list is empty:
 1-just break out of the function
                                                       head = null
@@ -154,5 +154,3 @@ if the list has more than one element:
                                                       head = 1 
 (1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp = 5
                                                       length = 4
-
-
