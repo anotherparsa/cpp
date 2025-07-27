@@ -89,7 +89,7 @@ class LinkedList{
         Node* get_node_by_index(int index){
             if (this->length == 0){
                 return nullptr;
-            }else if (index < 0 || index > this->length){
+            }else if (index < 0 || index >= this->length){
                 return nullptr;
             }else{
                 Node* temp_node = this->head;
@@ -100,6 +100,19 @@ class LinkedList{
             }
         }
 
-        
+        void set_node_value(int index, int value){
+            if (this->length == 0){
+                return;
+            }else if (index < 0 || index >= this->length){
+                return;
+            }else{
+                Node* temp_node = this->get_node_by_index(index);
+                if (temp_node){
+                    temp_node->value = value;
+                }else{
+                    return;
+                }
+            }
+        }
 };
 
