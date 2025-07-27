@@ -97,4 +97,31 @@ if the list has more than one element:
 (1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp = 5
                                                       length = 4
 
+Appending a Node(O(1)):
 
+if the link list is empty:
+1-Create a new node.
+                                                      head = null
+(5) -> null                                           tail = null    new_node = 5
+                                                      length = 0 
+
+2-both head and tail are going to point to the new_node since there is only one element.
+                                                      head = 5
+(5) -> null                                           tail = 5
+                                                      length = 1 
+
+if the list has at least one element:
+1-Create a new node.
+                                                      head = 1
+(5) -> null     (1) -> (2) -> (3) -> (4) -> null      tail = 4    new_node = 5
+                                                      length = 4
+
+2-new_node's next will be the current head node and links it to the list
+                                                      head = 1
+(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    new_node = 5
+                                                      length = 4
+
+3-new_node becomes the new head node
+                                                      head = 5
+(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    new_node = 5
+                                                      length = 4    
