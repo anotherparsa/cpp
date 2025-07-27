@@ -1,0 +1,21 @@
+A linked list is a data structure that consists of a sequence of elements, each of which is called a node.
+each node consists of two main part:
+Data: 
+the value that the node holds.
+Pointer:
+This is a pointer to the next node in the sequence. It allows for the linking of nodes to form the list.
+Unlike arrays:
+they're not fixed size, they're can grow or shrink.
+elements doesn't have to be homogeneous and can be heterogeneous.
+elements aren't stored continuously and are stored in different places in the memory.
+A linked list can have three properties:
+Head pointer:
+A node pointer which points to the first element of the list.
+Tail pointer:
+A node pointer which points to the last element of the list.
+Length variable:
+keepts track of the number of total elements in the list.
+EX:
+Head                             tail
+(1)   ->   (2)   ->   (3)   ->   (4)   ->  null       length = 4
+First                            last 
