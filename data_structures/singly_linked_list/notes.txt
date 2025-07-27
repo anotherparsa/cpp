@@ -97,7 +97,7 @@ if the list has more than one element:
 (1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp = 5
                                                       length = 4
 
-Appending a Node(O(1)):
+prepend a Node(O(1)):
 
 if the link list is empty:
 1-Create a new node.
@@ -125,3 +125,34 @@ if the list has at least one element:
                                                       head = 5
 (5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    new_node = 5
                                                       length = 4    
+
+
+delete first node():
+if the link list is empty:
+1-just break out of the function
+                                                      head = null
+                                                      tail = null
+                                                      length = 0 
+
+if the list has one element:
+1-since there is only one element, both head and tail node pointer are pointing to it, they both have to point to null pointer.
+                                                      head = null  
+(1) -> null                                           tail = null    temp = 1    
+                                                      length = 1
+2-delete the temp node:
+                                                      head = null
+                                                      tail = null
+                                                      length = 0 
+
+if the list has more than one element:
+1-Head node pointer is going to point to the next node of the current head pointer and makes that the new head node pointer.
+                                                      head = 1
+(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    temp = 5
+                                                      length = 5   
+
+2-delete the temp node.
+                                                      head = 1 
+(1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp = 5
+                                                      length = 4
+
+
