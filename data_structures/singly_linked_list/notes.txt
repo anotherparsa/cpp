@@ -110,17 +110,17 @@ create a temp_node which is going to be deleted.
 
 2-the previous node will become the new tail node.
                                                       head = 1    previous = 4
-(1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 4    temp = 5
+(1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 4    temp_node = 5
                                                       length = 5
 
 3-the new tail pointer will point to null and unlinks the last node from the list.
                                                       head = 1    previous = 4
-(1) -> (2) -> (3) -> (4) -> null (5) -> null          tail = 4    temp = 5
+(1) -> (2) -> (3) -> (4) -> null (5) -> null          tail = 4    temp_node = 5
                                                       length = 5
 
 4-decrease the length
                                                       head = 1    previous = 4
-(1) -> (2) -> (3) -> (4) -> null (5) -> null          tail = 4    temp = 5
+(1) -> (2) -> (3) -> (4) -> null (5) -> null          tail = 4    temp_node = 5
                                                       length = 4
 5-delete the temp node.
                                                       head = 1    previous = 4
@@ -194,17 +194,17 @@ if the list has more than one element:
 1-Head node pointer is going to point to the next node of the current head pointer and makes that the new head node pointer.
 create a temp_node which is going to be deleted.
                                                       head = 1
-(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    temp = 5
+(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    temp_node = 5
                                                       length = 5   
 
 2-decrease the length.
                                                       head = 1
-(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    temp = 5
+(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    temp_node = 5
                                                       length = 4 
 
 3-delete the temp node.
                                                       head = 1 
-(1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp = 5
+(1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp_node = 5
                                                       length = 4
 ######################################################################################################
 
@@ -239,3 +239,37 @@ inserting somewhere between (inserting at index 1):
                                                       head = 1   previous_node = 2
 (1) -> (2) -> (3) -> (5) -> (4) -> null               tail = 4   new_node = 5
                                                       length = 5   
+
+######################################################################################################
+
+delete node:
+when deleting node from a linked list, there are three cases, you're deleting the first index, you're deleting the last index, you're deleting a node somewhere between.
+deleting the first index or index 0:
+it's just like delete first node.
+deleting the last index or index length - 1:
+it's just like delete last node.
+deleting a node somewhere between (deleting the index 2):
+1-get the previous node of the index you're trying to delete.
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (3) -> (5) -> (4) -> null               tail = 4   
+                                                      length = 5   
+
+2-assing the node you're trying to delete to the temp_node.
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (3) -> (5) -> (4) -> null               tail = 4   temp_node = 3
+                                                      length = 5   
+
+3-previous node will point to the temp_node's next linking the before and after of the temp_node.
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (5) -> (4) -> null                      tail = 4   temp_node = 3
+       (3) -> (5)                                     length = 5   
+
+4-delete temp_node
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (5) -> (4) -> null                      tail = 4   temp_node = 3
+                                                      length = 5    
+
+4-decrease the length 
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (5) -> (4) -> null                      tail = 4   temp_node = 3
+                                                      length = 4 

@@ -136,8 +136,10 @@ class SLL{
                 return;
             }else if (index == 0){
                 this->prepend_node(value);
+                return;
             }else if (index == this->length - 1){
                 this->append_node(value);
+                return;
             }else{ 
                 Node* new_node = new Node(value);
                 Node* previous_node = this->get_node_by_index(index - 1);
@@ -148,6 +150,26 @@ class SLL{
                 }else{
                     return;
                 }
+            }
+        }
+
+        void delete_node(int index){
+            if (this->length == 0){
+                return;
+            }else if (index < 0 || index >= this->length ){
+                return;
+            }else if (index == 0){
+                this->delete_first_node();
+                return;
+            }else if (index == this->length - 1){
+                this->delete_last_node();
+                return;
+            }else{
+                Node* previous_node = this->get_node_by_index(index - 1);
+                Node* temp_node = previous_node->next;
+                previous_node->next = temp_node->next;
+                this->length--;
+                delete temp_node;
             }
         }
 };
@@ -182,5 +204,11 @@ int main(){
     mysll->insert_node(1, 2000);
     mysll->insert_node(-1, 3000);
     mysll->insert_node(2, 4000);
+    mysll->print_list();
+    mysll->delete_node(0);
+    mysll->delete_node(59);
+    mysll->delete_node(1);
+    mysll->delete_node(0);
+    mysll->delete_node(0);
     mysll->print_list();
 }
