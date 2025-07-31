@@ -1,23 +1,26 @@
 A linked list is a data structure that consists of a sequence of elements, each of which is called a node.
+there are:
+Singly Linked List, Singly Circular Linked List, Doubly Linked List and Doubly Circular Linked List.
 each node consists of two main part:
 Data: 
 the value that the node holds.
 Pointer:
-This is a pointer to the next node in the sequence. It allows for the linking of nodes to form the list.
+This is a pointer to the next or previous node in the sequence. It allows for the linking of nodes to form the list.
 Unlike arrays:
 they're not fixed size, they can grow or shrink.
 elements doesn't have to be homogeneous and can be heterogeneous.
 elements aren't stored continuously and are stored in different places in the memory.
 A linked list can have three properties:
-Head pointer:
+Head node pointer:
 A node pointer which points to the first element of the list.
-Tail pointer:
+Tail node pointer:
 A node pointer which points to the last element of the list.
 Length variable:
 keepts track of the number of total elements in the list.
 
+Singly Linked List:
 EX:
-empty linked list:
+empty Singly linked list:
                                                       head = null
                                                       tail = null
                                                       length = 0 
@@ -30,7 +33,7 @@ linked list with some elements:
 ######################################################################################################
 
 Appending a Node(O(1)):
-
+When adding a node to the end of a Linked list, there two cases, either the list is empty or it has at least one node already.
 if the link list is empty:
 1-Create a new_node.
                                                       head = null
@@ -40,7 +43,12 @@ if the link list is empty:
 2-both head and tail are going to point to the new_node since there is only one element.
                                                       head = 5
 (5) -> null                                           tail = 5
-                                                      length = 1 
+                                                      length = 0
+
+3-the length increases by one.
+                                                      head = 5
+(5) -> null                                           tail = 5
+                                                      length = 1
 
 if the list has at least one element:
 1-Create a new_node.
@@ -53,7 +61,12 @@ if the list has at least one element:
 (1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 4    new_node = 5
                                                       length = 4
 
-3-the tail pointer will point to the new_node and makes it the new tail node also the length increases.
+3-the tail pointer will point to the new_node and makes it the new tail node.
+                                                      head = 1
+(1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 5    new_node = 5
+                                                      length = 4      
+
+3-the length increases by one.
                                                       head = 1
 (1) -> (2) -> (3) -> (4) -> (5) -> null               tail = 5    new_node = 5
                                                       length = 5      
@@ -64,6 +77,7 @@ and then add the new node to the list. which is going to be O(n) but since we al
 ######################################################################################################
 
 Deleting the last Node(O(N)):
+when deleting the last element of a linked list, there are three cases, the list is empty, the list only has one element, the list has more than one element.
 if the link list is empty:
 1-just break out of the function
                                                       head = null
@@ -76,7 +90,13 @@ create a temp_node which is going to be deleted.
                                                       head = null  
 (1) -> null                                           tail = null    temp_node = 1    
                                                       length = 1
-2-delete the temp node:
+
+2-decrease the length
+                                                      head = null  
+(1) -> null                                           tail = null    temp_node = 1    
+                                                      length = 0
+
+3-delete the temp node:
                                                       head = null
                                                       tail = null
                                                       length = 0 
@@ -97,7 +117,12 @@ create a temp_node which is going to be deleted.
                                                       head = 1    previous = 4
 (1) -> (2) -> (3) -> (4) -> null (5) -> null          tail = 4    temp = 5
                                                       length = 5
-4-delete the temp node.
+
+4-decrease the length
+                                                      head = 1    previous = 4
+(1) -> (2) -> (3) -> (4) -> null (5) -> null          tail = 4    temp = 5
+                                                      length = 4
+5-delete the temp node.
                                                       head = 1    previous = 4
 (1) -> (2) -> (3) -> (4) -> null                      tail = 4    
                                                       length = 4
@@ -105,7 +130,7 @@ create a temp_node which is going to be deleted.
 ######################################################################################################
 
 prepend a Node(O(1)):
-
+When prepending a node to the beginning of a Linked list, there two cases, either the list is empty or it has at least one node already.
 if the link list is empty:
 1-Create a new_node.
                                                       head = null
@@ -133,9 +158,15 @@ if the list has at least one element:
 (5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4       new_node = 5
                                                       length = 4    
 
+4-increase the length
+                                                      head = 5
+(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4       new_node = 5
+                                                      length = 5    
+
 ######################################################################################################
 
 delete first node(O(1)):
+when deleting the last element of a linked list, there are three cases, the list is empty, the list only has one element, the list has more than one element.
 if the link list is empty:
 1-just break out of the function
                                                       head = null
@@ -148,7 +179,13 @@ create a temp_node which is going to be deleted.
                                                       head = null  
 (1) -> null                                           tail = null    temp_node = 1    
                                                       length = 1
-2-delete the temp node:
+
+2-decrease the length
+                                                      head = null  
+(1) -> null                                           tail = null    temp_node = 1    
+                                                      length = 0
+
+3-delete the temp node:
                                                       head = null
                                                       tail = null
                                                       length = 0 
@@ -160,7 +197,45 @@ create a temp_node which is going to be deleted.
 (5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    temp = 5
                                                       length = 5   
 
-2-delete the temp node.
+2-decrease the length.
+                                                      head = 1
+(5) -> (1) -> (2) -> (3) -> (4) -> null               tail = 4    temp = 5
+                                                      length = 4 
+
+3-delete the temp node.
                                                       head = 1 
 (1) -> (2) -> (3) -> (4) -> null                      tail = 4    temp = 5
                                                       length = 4
+######################################################################################################
+
+insert node:
+when inserting node to a linked list, there are three cases, you're inserting at the first index, you're inserting at the last index, you're inserting somewhere between.
+inserting at the first index or index 0:
+it's just like prepend.
+inserting at the last index or index length - 1:
+it's just like append.
+inserting somewhere between (inserting at index 1):
+1-Create a new node.
+                                                      head = 1
+(1) -> (2) -> (3) -> (4) -> null                      tail = 4   new_node = 5
+             (5) -> null                              length = 4
+
+2-get the previous node of the index you want to insert.
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (3) -> (4) -> null                      tail = 4   new_node = 5
+             (5) -> null                              length = 4
+
+3-new node will point to the previous_node's next node.
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (3) -> (4) -> null                      tail = 4   new_node = 5
+             (5) -> (4)                              length = 4
+
+4-previous_node will point to the new node and linking is complete.
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (3) -> (5) -> (4) -> null               tail = 4   new_node = 5
+                                                      length = 4   
+
+5-increase the length.
+                                                      head = 1   previous_node = 2
+(1) -> (2) -> (3) -> (5) -> (4) -> null               tail = 4   new_node = 5
+                                                      length = 5   

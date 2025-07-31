@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> 
 
 using namespace std;
 
@@ -13,17 +13,32 @@ class Node{
         }
 };
 
-class LinkedList{
+class SLL{
     private:
         Node* head;
         Node* tail;
         int length;
-    
+
     public:
-        LinkedList(){
+        SLL(){
             this->head = nullptr;
             this->tail = nullptr;
             this->length = 0;
+        }
+
+        void print_list(){
+            if (this->length == 0){
+                cout << "The list is empty" << endl;
+                return;
+            }else{
+                Node* temp_node = this->head;
+                cout << "List Items: " << endl;
+                while (temp_node != nullptr){
+                    cout << temp_node->value << " ";
+                    temp_node = temp_node->next;
+                }
+                cout << endl;
+            }
         }
 
         void append_node(int value){
@@ -40,6 +55,7 @@ class LinkedList{
 
         void delete_last_node(){
             if (this->length == 0){
+                cout << "The list is empty" << endl;
                 return;
             }
             Node* temp_node = this->head;
@@ -47,13 +63,13 @@ class LinkedList{
                 this->head = nullptr;
                 this->tail = nullptr;
             }else{
-            Node* previous_node = this->head;
-            while (temp_node->next != nullptr){
-                previous_node = temp_node;
-                temp_node = temp_node->next;
-            }
-            this->tail = previous_node;
-            this->tail->next = nullptr;
+                Node* previous_node = this->head;
+                while (temp_node->next != nullptr){
+                    previous_node = temp_node;
+                    temp_node = temp_node->next;
+                }
+                previous_node->next = nullptr;
+                this->tail = previous_node;
             }
             this->length--;
             delete temp_node;
@@ -75,7 +91,7 @@ class LinkedList{
             if (this->length == 0){
                 return;
             }
-            Node* temp = this->head;
+            Node* temp_node = this->head;
             if (this->length == 1){
                 this->head = nullptr;
                 this->tail = nullptr;
@@ -83,7 +99,7 @@ class LinkedList{
                 this->head = this->head->next;
             }
             this->length--;
-            delete temp;
+            delete temp_node;
         }
 
         Node* get_node_by_index(int index){
@@ -114,5 +130,57 @@ class LinkedList{
                 }
             }
         }
+
+        void insert_node(int index, int value){
+            if (index < 0 || index > this->length){
+                return;
+            }else if (index == 0){
+                this->prepend_node(value);
+            }else if (index == this->length - 1){
+                this->append_node(value);
+            }else{ 
+                Node* new_node = new Node(value);
+                Node* previous_node = this->get_node_by_index(index - 1);
+                if (previous_node != nullptr){
+                    new_node->next = previous_node->next;
+                    previous_node->next = new_node;
+                    this->length++;
+                }else{
+                    return;
+                }
+            }
+        }
 };
 
+int main(){
+    SLL* mysll = new SLL();
+    mysll->print_list();
+    mysll->append_node(1);
+    mysll->append_node(2);
+    mysll->append_node(3);
+    mysll->append_node(4);
+    mysll->print_list();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+    mysll->print_list();
+    mysll->prepend_node(1);
+    mysll->prepend_node(2);
+    mysll->prepend_node(3);
+    mysll->prepend_node(4);
+    mysll->print_list();
+    mysll->delete_first_node();
+    mysll->delete_first_node();
+    mysll->delete_first_node();
+    mysll->delete_first_node();
+    mysll->delete_first_node();
+    mysll->print_list();
+    mysll->insert_node(4, 100);
+    mysll->insert_node(0, 1000);
+    mysll->insert_node(1, 2000);
+    mysll->insert_node(-1, 3000);
+    mysll->insert_node(2, 4000);
+    mysll->print_list();
+}
