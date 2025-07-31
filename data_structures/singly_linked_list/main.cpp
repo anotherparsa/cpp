@@ -172,6 +172,25 @@ class SLL{
                 delete temp_node;
             }
         }
+
+        void reverse_the_list(){
+            if (this->length == 0 || this->length ==1){
+                return;
+            }else{
+                Node* temp_node = this->head;
+               this->head = this->tail;
+                this->tail = temp_node;
+                Node* before_node = nullptr;
+                Node* current_node = temp_node;
+                Node* after_node;
+                for (int i = 0 ; i < this->length ; i++){
+                    after_node = current_node->next;
+                    current_node->next = before_node;
+                    before_node = current_node;
+                    current_node = after_node;
+                }
+            }
+        }
 };
 
 int main(){
@@ -211,4 +230,13 @@ int main(){
     mysll->delete_node(0);
     mysll->delete_node(0);
     mysll->print_list();
+    mysll->append_node(1);
+    mysll->append_node(2);
+    mysll->append_node(3);
+    mysll->append_node(4);
+    mysll->append_node(5);
+    mysll->print_list();
+    mysll->reverse_the_list();
+    mysll->print_list();
+    
 }
