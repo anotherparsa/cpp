@@ -289,3 +289,18 @@ we're going to change the direction of the nodes pointing to each other.
 null <- (1) <- (2) <- (3) <- (4) <- (5)               tail = 1    
                                                       length = 5  
 ######################################################################################################
+
+doubly linked list:
+unlike singly linked list, nodes in the doubly linked list are going to have both next and previous node pointers.
+they are linked in both ways.
+EX:
+empty doubly linked list:
+                                                      head = null
+                                                      tail = null
+                                                      length = 0 
+                                                      
+linked list with some elements:                       
+                                                      head = 1
+null <-> (1) <-> (2) <-> (3) <-> (4) <-> null         tail = 4
+                                                      length = 4
+                                                      
