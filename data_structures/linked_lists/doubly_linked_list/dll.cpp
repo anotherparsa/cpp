@@ -27,8 +27,40 @@ class DLL{
             this->tail = nullptr;
             this->length = 0;
         }
+
+        void print_list(){
+            if(this->length == 0){
+                return;
+            }else{
+                Node* temp_node = this->head;
+                while (temp_node != nullptr){
+                    cout << temp_node->value << " ";
+                    temp_node = temp_node->next;
+                }
+                cout << endl;
+            }
+        }
+
+        void append_node(int value){
+            Node* new_node = new Node(value);
+            if (this->length == 0){
+                this->head = new_node;
+                this->tail = new_node;
+            }else{
+                this->tail->next = new_node;
+                new_node->before = this->tail;
+                this->tail = new_node;
+            }
+            this->length++;
+        }
 };
 
 int main(){
-    
+    DLL* mydll = new DLL();
+    mydll->print_list();
+    mydll->append_node(1);
+    mydll->append_node(2);
+    mydll->append_node(3);
+    mydll->append_node(4);
+    mydll->print_list();
 }
