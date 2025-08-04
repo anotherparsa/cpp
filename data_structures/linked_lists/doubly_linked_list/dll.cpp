@@ -82,6 +82,22 @@ class DLL{
             }
             this->length++;
         }
+
+        void delete_first_node(){
+            if (this->length == 0){
+                return;
+            }
+            Node* temp_node = this->head;
+            if (this->length == 1){
+                this->head = nullptr;
+                this->tail = nullptr;
+            }else{
+                this->head = this->head->next;
+                this->head->before = nullptr;
+            }
+            this->length--;
+            delete temp_node;
+        }
 };
 
 int main(){
@@ -101,6 +117,12 @@ int main(){
     mydll->prepend_node(2);
     mydll->prepend_node(3);
     mydll->prepend_node(4);
+    mydll->print_list();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
     mydll->print_list();
 
 }
