@@ -73,6 +73,18 @@ class SLL{
             }
             this->length--;
         }
+
+        void prepend_node(int value){
+            Node* new_node = new Node(value);
+            if (this->length == 0){
+                this->head = new_node;
+                this->tail = new_node;
+            }else{
+                new_node->next = this->head;
+                this->head = new_node;
+            }
+            this->length++;
+        }
 };
 
 int main(){
@@ -88,4 +100,11 @@ int main(){
     mysll->delete_last_node();
     mysll->delete_last_node();
     mysll->delete_last_node();
+    mysll->prepend_node(1);
+    mysll->prepend_node(2);
+    mysll->prepend_node(3);
+    mysll->prepend_node(4);
+    mysll->prepend_node(5);
+    mysll->print_list();
+    
 }
