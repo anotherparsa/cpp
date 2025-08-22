@@ -40,6 +40,20 @@ class SLL{
             }
         }
 
+        Node* get_node_by_index(int index){
+            if (this->length == 0){
+                return nullptr;
+            }else if (index < 0 || index >= this->length){
+                return nullptr;
+            }else{
+                Node* temp_node = this->head;
+                for (int i = 0 ; i < index ; i++){
+                    temp_node = temp_node->next;
+                }
+                return temp_node;
+            }
+        }
+
         void append_node(int value){
             Node* new_node = new Node(value);
             if (this->length == 0){
@@ -101,6 +115,8 @@ class SLL{
             delete temp_node;
             this->length--;
         }
+
+
 };
 
 int main(){
