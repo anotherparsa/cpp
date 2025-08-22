@@ -69,8 +69,8 @@ class SLL{
                 }
                 previous_node->next = nullptr;
                 this->tail = previous_node;
-                delete temp_node;
             }
+            delete temp_node;
             this->length--;
         }
 
@@ -84,6 +84,22 @@ class SLL{
                 this->head = new_node;
             }
             this->length++;
+        }
+
+        void delete_first_node(){
+            if (this->length == 0){
+                cout << "The list is empty!" << endl;
+                return;
+            }
+            Node* temp_node = this->head;
+            if (this->length == 1){
+                this->head = nullptr;
+                this->tail = nullptr;
+            }else{
+                this->head = this->head->next;
+            }
+            delete temp_node;
+            this->length--;
         }
 };
 
@@ -104,7 +120,13 @@ int main(){
     mysll->prepend_node(2);
     mysll->prepend_node(3);
     mysll->prepend_node(4);
-    mysll->prepend_node(5);
     mysll->print_list();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+    mysll->delete_last_node();
+
+
     
 }
