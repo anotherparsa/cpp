@@ -116,6 +116,25 @@ class SLL{
             this->length--;
         }
 
+        void insert_node(int index, int value){
+            if (index < 0 || index > this->length){
+                cout << "Invalid index!" << endl;
+                return;
+            }else if (index == 0){
+                this->prepend_node(value);
+                return;
+            }else if (index == this->length){
+                this->append_node(value);
+                return;
+            }else{
+                Node* new_node = new Node(value);
+                Node* previous_node = this->get_node_by_index(index - 1);
+                new_node->next = previous_node->next;
+                previous_node->next = new_node;
+                this->length++; 
+            }
+        }
+
 
 };
 
@@ -142,6 +161,16 @@ int main(){
     mysll->delete_last_node();
     mysll->delete_last_node();
     mysll->delete_last_node();
+    mysll->insert_node(0, 100);
+    mysll->print_list();
+    mysll->insert_node(2, 199);
+    mysll->print_list();
+    mysll->insert_node(1, 200);
+    mysll->print_list();
+    mysll->insert_node(1, 300);
+    mysll->print_list();
+
+
 
 
     
