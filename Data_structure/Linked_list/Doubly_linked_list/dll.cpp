@@ -14,3 +14,17 @@ class Node{
             this->previous = nullptr;
         }
 };
+
+class DLL{
+    private:
+        Node* head;
+        Node* tail;
+        int length;
+
+    public:
+        DLL(){
+            this->head = nullptr;
+            this->tail = nullptr;
+            this->length = 0;
+        }
+};
