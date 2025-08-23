@@ -129,9 +129,35 @@ class SLL{
             }else{
                 Node* new_node = new Node(value);
                 Node* previous_node = this->get_node_by_index(index - 1);
-                new_node->next = previous_node->next;
-                previous_node->next = new_node;
-                this->length++; 
+                if (previous_node != nullptr){
+                    new_node->next = previous_node->next;
+                    previous_node->next = new_node;
+                    this->length++;
+                }
+            }
+        }
+
+        void delete_node(int index){
+            if (this->length == 0){
+                cout << "List is empty!" << endl;
+                return;
+            }else if (index < 0 || index >= this->length){
+                cout << "Invalid Index!" << endl;
+                return;
+            }else if (index == 0){
+                this->delete_first_node();
+                return;
+            }else if (index == this->length - 1){
+                this->delete_last_node();
+                return;
+            }else{
+                Node* previous_node = this->get_node_by_index(index - 1);
+                if (previous_node != nullptr){
+                    Node* temp_node = previous_node->next;
+                    previous_node->next = temp_node->next;
+                    delete temp_node;
+                    this->length--;
+                }
             }
         }
 
@@ -169,9 +195,11 @@ int main(){
     mysll->print_list();
     mysll->insert_node(1, 300);
     mysll->print_list();
+    mysll->delete_node(0);
+    mysll->delete_node(1);
+    mysll->delete_node(11);
+    mysll->delete_node(0);
+    mysll->delete_node(3);
+    mysll->print_list();
 
-
-
-
-    
 }
