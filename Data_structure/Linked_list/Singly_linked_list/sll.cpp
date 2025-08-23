@@ -175,53 +175,26 @@ class SLL{
             }
         }
 
+        void reverse_list(){
+            if (this->length == 0){
+                cout << "list is empty" << endl;
+            }else{
+                Node* temp_node = this->head;
+                Node* after_node = this->head;
+                Node* before_node = nullptr;
+                this->head = this->tail;
+                this->tail = temp_node;
+                for (int i = 0 ; i < this->length ; i++){
+                    after_node = temp_node->next;
+                    temp_node->next = before_node;
+                    before_node = temp_node;
+                    temp_node = after_node;
+                }
+            }
+        }
 
 };
 
 int main(){
-    SLL* mysll = new SLL();
-    mysll->print_list();
-    mysll->append_node(1);
-    mysll->append_node(2);
-    mysll->append_node(3);
-    mysll->append_node(4);
-    mysll->print_list();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->prepend_node(1);
-    mysll->prepend_node(2);
-    mysll->prepend_node(3);
-    mysll->prepend_node(4);
-    mysll->print_list();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->delete_last_node();
-    mysll->insert_node(0, 100);
-    mysll->print_list();
-    mysll->insert_node(2, 199);
-    mysll->print_list();
-    mysll->insert_node(1, 200);
-    mysll->print_list();
-    mysll->insert_node(1, 300);
-    mysll->print_list();
-    mysll->delete_node(0);
-    mysll->delete_node(1);
-    mysll->delete_node(11);
-    mysll->delete_node(0);
-    mysll->delete_node(3);
-    mysll->print_list();
-    mysll->append_node(1);
-    mysll->append_node(2);
-    mysll->append_node(3);
-    mysll->append_node(4);
-    mysll->print_list();
-    mysll->set_node_value(33, 22);
-    mysll->set_node_value(1, 199);
-    mysll->print_list();
 
 }
