@@ -32,7 +32,7 @@ class DLL{
             if (this->length == 0){
                 cout << "List is empty!" << endl;
             }else{
-                cout << "List Elements: " << endl << "null ";
+                cout << "List Elements: " << endl << "null <-> ";
                 Node* temp_node = this->head;
                 while(temp_node != nullptr){
                     cout << temp_node->value << " <-> ";
@@ -55,6 +55,23 @@ class DLL{
             this->length++;
         }
 
+        void delete_last_node(){
+            if (this->length == 0){
+                cout << "List is empty!" << endl;
+                return;
+            }
+            Node* temp_node = this->tail;
+            if (this->length == 1){
+                this->head = nullptr;
+                this->tail = nullptr;
+            }else{
+                this->tail = this->tail->previous;
+                this->tail->next = nullptr;
+            }
+            delete temp_node;
+            this->length--;
+        }
+
 };
 
 int main(){
@@ -64,5 +81,12 @@ int main(){
     mydll->append_node(2);
     mydll->append_node(3);
     mydll->append_node(4);
+    mydll->print_list();
+    mydll->delete_last_node();
+    mydll->delete_last_node();
+    mydll->delete_last_node();
+    mydll->print_list();
+    mydll->delete_last_node();
+    mydll->delete_last_node();
     mydll->print_list();
 }
