@@ -27,4 +27,19 @@ class DLL{
             this->tail = nullptr;
             this->length = 0;
         }
+
+        void print_list(){
+            if (this->length == 0){
+                cout << "List is empty!" << endl;
+            }else{
+                cout << "List Elements: " << endl;
+                Node* temp_node = this->head;
+                while(temp_node != nullptr){
+                    cout << temp_node->value << " -> ";
+                    temp_node = temp_node->next;
+                }
+                cout << endl;
+            }
+        }
+
 };
