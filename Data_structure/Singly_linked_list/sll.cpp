@@ -54,6 +54,20 @@ class SLL{
             }
         }
 
+        void set_node_value(int index, int value){
+            if (this->length == 0){
+                cout << "List is empty!" << endl;
+                return;
+            }else if (index < 0 || index >= this->length){
+                cout << "Invalid index!" << endl;
+            }else{
+                Node* temp_node = this->get_node_by_index(index);
+                if (temp_node != nullptr){
+                    temp_node->value = value;
+                }
+            }
+        }
+
         void append_node(int value){
             Node* new_node = new Node(value);
             if (this->length == 0){
@@ -200,6 +214,14 @@ int main(){
     mysll->delete_node(11);
     mysll->delete_node(0);
     mysll->delete_node(3);
+    mysll->print_list();
+    mysll->append_node(1);
+    mysll->append_node(2);
+    mysll->append_node(3);
+    mysll->append_node(4);
+    mysll->print_list();
+    mysll->set_node_value(33, 22);
+    mysll->set_node_value(1, 199);
     mysll->print_list();
 
 }
