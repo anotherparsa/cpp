@@ -5,11 +5,11 @@ using namespace std;
 class Node{
     public:
         int value;
-        Node* next;
+        Node* before;
 
         Node(int value){
             this->value = value;
-            this->next = nullptr;
+            this->before = nullptr;
         }
 };
 
@@ -35,9 +35,21 @@ class Queue{
                 cout << "Queue elements: " << endl;
                 while (temp_node != nullptr){
                     cout << temp_node->value << " -> "; 
-                    temp_node = temp_node->next;
+                    temp_node = temp_node->before;
                 }
-                cout << endl << "Null"
+                cout << endl << "Null";
             }
+        }
+
+        void enqueue_node(int value){
+            Node* new_node = new Node(value);
+            if (this->length == 0){
+                this->first = new_node;
+                this->last = new_node;
+            }else {
+                this->last->before = new_node;
+                this->last = new_node;
+            }
+            this->length++;
         }
 };
