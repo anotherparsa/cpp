@@ -30,5 +30,15 @@ class Stack{
             this->top = new_node;
             this->height++;
         }
-        
+
+        Node* pop_node(){
+            if (this->height == 0){
+                return nullptr;
+            }else{
+                Node* temp_node = this->top;
+                this->top = this->top->bottom;
+                delete temp_node;
+                this->height--;
+            }
+        }
 };
