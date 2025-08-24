@@ -85,26 +85,36 @@ class DLL{
             this->length++;
         }
 
+        void delete_first_node(){
+            if (this->length == 0){
+                cout << "List is empty" << endl;
+                return;
+            }
+            Node* temp_node = this->head;
+            if (this->length == 1){
+                this->head = nullptr;
+                this->tail = nullptr;
+            }else{
+                this->head = this->head->next;
+                this->head->previous = nullptr;
+            }
+            delete temp_node;
+            this->length--;
+        }
+
 };
 
 int main(){
     DLL* mydll = new DLL();
-    mydll->print_list();
-    mydll->append_node(1);
-    mydll->append_node(2);
-    mydll->append_node(3);
-    mydll->append_node(4);
-    mydll->print_list();
-    mydll->delete_last_node();
-    mydll->delete_last_node();
-    mydll->delete_last_node();
-    mydll->print_list();
-    mydll->delete_last_node();
-    mydll->delete_last_node();
-    mydll->print_list();
     mydll->prepend_node(1);
     mydll->prepend_node(2);
     mydll->prepend_node(3);
     mydll->prepend_node(4);
+    mydll->print_list();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
+    mydll->delete_first_node();
     mydll->print_list();
 }
