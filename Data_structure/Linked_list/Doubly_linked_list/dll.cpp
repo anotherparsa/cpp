@@ -140,6 +140,28 @@ class DLL{
             this->length--;
         }
 
+        void inset_node(int index, int value){
+            if (index < 0 || index > this->length){
+                cout << "Invalid Index" << endl;
+                return;
+            }else if (index == 0){
+                this->prepend_node(value);
+                return;
+            }else if (index == this->length){
+                this->append_node(value);
+                return;
+            }else{
+                Node* new_node = new Node(value);
+                Node* before_node = this->get_node_by_index(index - 1);
+                Node* after_node = before_node->next;
+                before_node->next = new_node;
+                new_node->previous = before_node;
+                after_node->previous = new_node;
+                new_node->next = after_node;
+                this->length++;
+            }
+        }
+
 };
 
 int main(){
@@ -151,5 +173,7 @@ int main(){
     mydll->print_list();
     mydll->set_node_value(3, 444);
     mydll->set_node_value(0, 1999);
+    mydll->print_list();
+    mydll->inset_node(2, 5555);
     mydll->print_list();
 }
