@@ -59,17 +59,6 @@ class Stack{
 };
 
 int main(){
-    Stack* mystack = new Stack();
-    mystack->push_node(1);
-    mystack->push_node(2);
-    mystack->push_node(3);
-    mystack->push_node(4);
-    mystack->print_stack();
-    mystack->pop_node();
-    mystack->pop_node();
-    mystack->print_stack();
-    mystack->pop_node();
-    mystack->pop_node();
-    mystack->pop_node();
+
 
 }

@@ -71,5 +71,6 @@ class Queue{
 };
 
 int main(){
-    
+
+
 }
