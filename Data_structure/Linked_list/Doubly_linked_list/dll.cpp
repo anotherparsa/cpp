@@ -162,18 +162,31 @@ class DLL{
             }
         }
 
+        void delete_node(int index){
+            if (this->length == 0 ){
+                cout << "List is empty" << endl;
+                return;
+            }else if (index < 0 || index >= this->length){
+                cout << "Invalid Index" << endl;
+                return;
+            }else if (index == 0){
+                this->delete_first_node();
+                return;
+            }else if (index == this->length - 1){
+                this->delete_last_node();
+                return;
+            }else{
+                Node* temp_node = this->get_node_by_index(index);
+                Node* after_node = temp_node->next;
+                Node* before_node = temp_node->previous;
+                before_node->next = after_node;
+                after_node->previous = before_node;
+                delete temp_node;
+                this->length--;
+            }
+        }
 };
 
 int main(){
-    DLL* mydll = new DLL();
-    mydll->prepend_node(1);
-    mydll->prepend_node(2);
-    mydll->prepend_node(3);
-    mydll->prepend_node(4);
-    mydll->print_list();
-    mydll->set_node_value(3, 444);
-    mydll->set_node_value(0, 1999);
-    mydll->print_list();
-    mydll->inset_node(2, 5555);
-    mydll->print_list();
+
 }
