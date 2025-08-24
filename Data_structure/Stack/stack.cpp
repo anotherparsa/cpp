@@ -12,3 +12,16 @@ class Node{
             this->bottom = nullptr;
         }
 };
+
+class Stack{
+    private:
+        Node* top;
+        int height;
+    
+    public:
+        Stack(){
+            this->top = nullptr;
+            this->height = 0;
+        }
+
+};
