@@ -37,7 +37,7 @@ class Queue{
                     cout << temp_node->value << " -> "; 
                     temp_node = temp_node->before;
                 }
-                cout << endl << "Null";
+                cout << "Null" << endl;
             }
         }
 
@@ -52,4 +52,24 @@ class Queue{
             }
             this->length++;
         }
+
+        void dequeue_node(){
+            if (this->length == 0){
+                cout << "The queue is empty" << endl;
+                return;
+            }
+            Node* temp_node = this->first;
+            if (this->length == 1){
+                this->first = nullptr;
+                this->last = nullptr;
+            }else{
+                this->first = this->first->before;
+            }
+            delete temp_node;
+            this->length--;
+        }
 };
+
+int main(){
+    
+}
