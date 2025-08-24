@@ -72,6 +72,19 @@ class DLL{
             this->length--;
         }
 
+        void prepend_node(int value){
+            Node* new_node = new Node(value);
+            if (this->length == 0){
+                this->head = new_node;
+                this->tail = new_node;
+            }else{
+                new_node->next = this->head;
+                this->head->previous = new_node;
+                this->head = new_node;
+            }
+            this->length++;
+        }
+
 };
 
 int main(){
@@ -88,5 +101,10 @@ int main(){
     mydll->print_list();
     mydll->delete_last_node();
     mydll->delete_last_node();
+    mydll->print_list();
+    mydll->prepend_node(1);
+    mydll->prepend_node(2);
+    mydll->prepend_node(3);
+    mydll->prepend_node(4);
     mydll->print_list();
 }
