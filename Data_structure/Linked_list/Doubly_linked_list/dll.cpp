@@ -42,6 +42,31 @@ class DLL{
             }
         }
 
+        Node* get_node_by_index(int index){
+            if (this->length == 0){
+                cout << "List is empty" << endl;
+                return nullptr;
+            }else if (index < 0 || index >= this->length){
+                cout << "Invalid Index" << endl;
+                return nullptr;
+            }else{
+                Node* temp_node = this->head;
+                if (index < this->length / 2){
+                    for (int i = 0 ; i < index ; i++){
+                        temp_node = temp_node->next;
+                    }
+                }else{
+                    for (int i = this->length - 1 ; i > index ; i--){
+                        temp_node = temp_node->previous;
+                    }
+                }
+                if (temp_node != nullptr){
+                    return temp_node;
+                }
+                return temp_node;
+            }
+        }
+
         void append_node(int value){
             Node* new_node = new Node(value);
             if (this->length == 0){
