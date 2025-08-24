@@ -13,3 +13,16 @@ class Node{
         }
 };
 
+class Queue{
+    private:
+        Node* first;
+        Node* last;
+        int length;
+
+    public:
+        Queue(){
+            this->first = nullptr;
+            this->last = nullptr;
+            this->length = 0;
+        }
+}
