@@ -56,6 +56,7 @@ class DLL{
                         temp_node = temp_node->next;
                     }
                 }else{
+                    temp_node = this->tail;
                     for (int i = this->length - 1 ; i > index ; i--){
                         temp_node = temp_node->previous;
                     }
@@ -64,6 +65,18 @@ class DLL{
                     return temp_node;
                 }
                 return temp_node;
+            }
+        }
+
+        void set_node_value(int index, int value){
+            if (this->length == 0){
+                cout << "List is empty!" << endl;
+                return;
+            }else{
+                Node* temp_node = this->get_node_by_index(index);
+                if (temp_node != nullptr){
+                    temp_node->value = value;
+                }
             }
         }
 
@@ -136,10 +149,7 @@ int main(){
     mydll->prepend_node(3);
     mydll->prepend_node(4);
     mydll->print_list();
-    mydll->delete_first_node();
-    mydll->delete_first_node();
-    mydll->delete_first_node();
-    mydll->delete_first_node();
-    mydll->delete_first_node();
+    mydll->set_node_value(3, 444);
+    mydll->set_node_value(0, 1999);
     mydll->print_list();
 }
