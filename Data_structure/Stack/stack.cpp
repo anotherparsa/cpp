@@ -24,4 +24,11 @@ class Stack{
             this->height = 0;
         }
 
+        void push_node(int value){
+            Node* new_node = new Node(value);
+            new_node->bottom = this->top;
+            this->top = new_node;
+            this->height++;
+        }
+        
 };
