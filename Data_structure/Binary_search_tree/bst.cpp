@@ -14,3 +14,13 @@ class Node{
             this->right = nullptr;
         }
 };
+
+class BST{
+    private:
+        Node* root;
+    
+    public:
+        BST(){
+            this->root = nullptr;
+        }
+};
