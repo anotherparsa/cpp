@@ -53,6 +53,26 @@ class BST{
                 }
             }
         }
+
+        void contains(int value){
+            if (this->root == nullptr){
+                cout << "It doesn't contain" << endl;
+                return;
+            }else{
+                Node* temp_node = this->root;
+                while (temp_node != nullptr){
+                    if (value < temp_node->value){
+                        temp_node = temp_node->left;
+                    }else if (value > temp_node->value){
+                        temp_node = temp_node->right;
+                    }else if (value == temp_node->value){
+                        cout << "It contains" << endl;
+                        return;
+                    }
+                }
+                cout << "it doesn't contain" << endl;
+            }
+        }
 };
 
 int main(){
@@ -67,4 +87,6 @@ int main(){
     cout << mybst->root->right->value << endl;
     cout << mybst->root->left->left->value << endl;
     cout << mybst->root->right->right->value << endl;
+    mybst->contains(2);
+    mybst->contains(44);
 }
