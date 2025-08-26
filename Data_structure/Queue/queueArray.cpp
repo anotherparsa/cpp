@@ -15,4 +15,9 @@ class Stack{
             this->top = -1;
             cout << "An empty Stack created with the capacity of " << size << endl;
         }
+
+        ~Stack() {
+        delete []this->array;
+        cout << "Erased" << endl; 
+    }
 };
