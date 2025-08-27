@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <limits>
 using namespace std;
 
 class Stack{
@@ -30,11 +30,15 @@ class Stack{
         }
 
         void print_stack(){
-            cout << "Stack elements" << endl;
-            for (int i = 0 ; i < this->top + 1; i++){
-                cout << this->array[i] << " ";
+            if (this->is_empty()){
+                cout << "Stack is empty" << endl;
+            }else{
+                cout << "Stack elements" << endl;
+                for (int i = 0 ; i < this->top + 1; i++){
+                    cout << this->array[i] << " ";
+                }
+                cout << endl;
             }
-            cout << endl;
         }
 
         void push_element(int value){
@@ -46,14 +50,33 @@ class Stack{
             }
         }
 
+        int pop_element(){
+            if (this->is_empty()){
+                cout << "Stack is empty" << endl;
+                return numeric_limits<int>::min();
+            }else{
+                int popped_value = this->array[top];
+                this->top--;
+                cout << "Deleted " << popped_value << endl;
+                return popped_value;
+            }
+        }
+
 
 };
 
 int main(){
     Stack* mystack = new Stack(10);
+    cout << mystack->pop_element() << endl;
+    cout << "------------------------------------" << endl;
     mystack->push_element(1);
     mystack->push_element(2);
     mystack->push_element(3);
     mystack->push_element(4);
+    mystack->print_stack();
+    cout << "-----------------------------------" << endl;
+    cout << mystack->pop_element() << endl;;
+    cout << mystack->pop_element() << endl;
+    cout << "-----------------------------------" << endl;
     mystack->print_stack();
 }
