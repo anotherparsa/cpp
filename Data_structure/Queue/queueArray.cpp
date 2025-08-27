@@ -29,5 +29,22 @@ class Stack{
             return this->top == -1;
         }
 
+        void push_element(int value){
+            if (this->is_full()){
+                cout << "Stack is full " << endl;
+            }else{
+                this->top++;
+                this->array[this->top] = value;
+            }
+        }
+
 
 };
+
+int main(){
+    Stack* mystack = new Stack(10);
+    mystack->push_element(1);
+    mystack->push_element(2);
+    mystack->push_element(3);
+    mystack->push_element(4);
+}
