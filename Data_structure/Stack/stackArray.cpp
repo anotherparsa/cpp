@@ -29,6 +29,14 @@ class Stack{
             return this->top == -1;
         }
 
+        void print_stack(){
+            cout << "Stack elements" << endl;
+            for (int i = 0 ; i < this->top + 1; i++){
+                cout << this->array[i] << " ";
+            }
+            cout << endl;
+        }
+
         void push_element(int value){
             if (this->is_full()){
                 cout << "Stack is full " << endl;
@@ -47,4 +55,5 @@ int main(){
     mystack->push_element(2);
     mystack->push_element(3);
     mystack->push_element(4);
+    mystack->print_stack();
 }
