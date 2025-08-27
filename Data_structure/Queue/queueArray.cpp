@@ -17,7 +17,13 @@ class Stack{
         }
 
         ~Stack() {
-        delete []this->array;
-        cout << "Erased" << endl; 
-    }
+            delete []this->array;
+            cout << "Erased" << endl; 
+        }
+
+        bool is_full(){
+            return this->top == this->capacity - 1;
+        }
+
+
 };
