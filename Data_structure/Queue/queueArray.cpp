@@ -25,5 +25,9 @@ class Stack{
             return this->top == this->capacity - 1;
         }
 
+        bool is_empty(){
+            return this->top == -1;
+        }
+
 
 };
